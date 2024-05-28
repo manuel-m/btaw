@@ -3,6 +3,7 @@ package main
 import (
 	"btaw/cmd/api/app"
 	"btaw/cmd/api/cfg"
+	"btaw/cmd/api/handler"
 	"btaw/log"
 	"fmt"
 	"net/http"
@@ -11,7 +12,6 @@ import (
 
 func main() {
 	app.Init()
-	fmt.Println(cfg.Env)
 
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", cfg.Port),
@@ -19,6 +19,12 @@ func main() {
 		IdleTimeout:  time.Minute,
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 30 * time.Second,
+	}
+
+	// routes
+	{
+		app.Mux.HandleFunc("/health", handler.Health)
+		app.Mux.HandleFunc("/klines/{symbol}/{interval}", handler.Klines)
 	}
 
 	log.Logger.Printf("starting %s server on %s", cfg.Env, srv.Addr)

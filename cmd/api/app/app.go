@@ -2,7 +2,6 @@ package app
 
 import (
 	"btaw/cmd/api/cfg"
-	"btaw/cmd/api/handler"
 	"flag"
 	"net/http"
 )
@@ -18,7 +17,6 @@ func Init() error {
 	}
 
 	Mux = http.NewServeMux()
-	Mux.HandleFunc("/health", handler.Health)
 
 	return nil
 }
