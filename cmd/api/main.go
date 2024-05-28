@@ -3,15 +3,19 @@ package main
 import (
 	"btaw/cmd/api/app"
 	"btaw/cmd/api/cfg"
+	"btaw/cmd/api/db"
 	"btaw/cmd/api/handler"
-	"btaw/log"
+	"btaw/logger"
 	"fmt"
 	"net/http"
 	"time"
 )
 
 func main() {
+
 	app.Init()
+
+	db.Query()
 
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", cfg.Port),
@@ -27,8 +31,8 @@ func main() {
 		app.Mux.HandleFunc("/klines/{symbol}/{interval}", handler.Klines)
 	}
 
-	log.Logger.Printf("starting %s server on %s", cfg.Env, srv.Addr)
+	logger.Log.Printf("starting %s server on %s", cfg.Env, srv.Addr)
 	err := srv.ListenAndServe()
-	log.Logger.Fatal(err)
+	logger.Log.Fatal(err)
 
 }

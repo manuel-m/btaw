@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"btaw/log"
+	"btaw/logger"
 	"btaw/pkg/klines"
 	"net/http"
 )
@@ -11,11 +11,11 @@ func Klines(w http.ResponseWriter, r *http.Request) {
 	interval := r.PathValue("interval")
 	json_bytes, err := klines.Fetch(symbol, interval)
 
-	log.Logger.Println(symbol)
-	log.Logger.Println(interval)
+	logger.Log.Println(symbol)
+	logger.Log.Println(interval)
 
 	if err != nil {
-		log.Logger.Println(err)
+		logger.Log.Println(err)
 		http.Error(w, "The server encountered a problem and could not process your request", http.StatusInternalServerError)
 		return
 	}

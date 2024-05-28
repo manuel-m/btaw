@@ -2,13 +2,27 @@ package app
 
 import (
 	"btaw/cmd/api/cfg"
+	"btaw/logger"
 	"flag"
 	"net/http"
+	"os"
+
+	"github.com/joho/godotenv"
 )
 
 var Mux *http.ServeMux
 
 func Init() error {
+
+	// .env parse
+	{
+		err := godotenv.Load()
+		if err != nil {
+			logger.Log.Fatal("Error loading .env file")
+		}
+		cfg.DATABASE_URL = os.Getenv("DATABASE_URL")
+	}
+
 	// cli parse
 	{
 		flag.IntVar(&cfg.Port, "port", 4000, "API server port")
