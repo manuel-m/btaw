@@ -12,7 +12,11 @@ go run ./cmd/bx-gw/
 
 ```
 # retreive history data
-http://<host:port>/klines/<symbol>/<interval>
+http://<host:port>/klines/<symbol>/<tf>/<t0_ms>/<duration>
+
+http://localhost:4000/klines/BTC-USDT/1h/1715555676044/1d
+http://localhost:4000/klines/BTC-USDT/15m/1715555676044/1d
+	
 
 # retreive history data
 http://<host:port>/health

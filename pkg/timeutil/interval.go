@@ -4,6 +4,10 @@ import "fmt"
 
 type Interval string
 
+func (i Interval) String() string {
+	return string(i)
+}
+
 type Converter interface {
 	ToMs() (int64, error)
 }

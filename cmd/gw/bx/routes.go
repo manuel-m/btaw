@@ -7,5 +7,5 @@ import (
 
 func Routes() {
 	app.Mux.HandleFunc("/health", handler.Health)
-	app.Mux.HandleFunc("/klines/{symbol}/{interval}", handler.Klines)
+	app.Mux.HandleFunc("/klines/{symbol}/{tf}/{t0}/{duration}", handler.Klines)
 }
