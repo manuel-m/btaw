@@ -1,10 +1,10 @@
 package main
 
 import (
-	"btaw/cmd/api/app"
-	"btaw/cmd/api/cfg"
-	"btaw/cmd/api/db"
-	"btaw/cmd/api/handler"
+	"btaw/cmd/bx-gw/app"
+	"btaw/cmd/bx-gw/cfg"
+	"btaw/cmd/bx-gw/db"
+	"btaw/cmd/bx-gw/handler"
 	"btaw/logger"
 	"fmt"
 	"net/http"

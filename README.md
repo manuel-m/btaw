@@ -5,7 +5,7 @@
 **run**
 ```
 go mod tidy
-go run ./cmd/api
+go run ./cmd/bx-gw/
 ```
 
 **api**

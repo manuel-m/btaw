@@ -1,7 +1,7 @@
 package db
 
 import (
-	"btaw/cmd/api/cfg"
+	"btaw/cmd/bx-gw/cfg"
 	"btaw/logger"
 	"context"
 

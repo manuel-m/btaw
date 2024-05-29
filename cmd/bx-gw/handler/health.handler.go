@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"btaw/cmd/api/cfg"
+	"btaw/cmd/bx-gw/cfg"
 	"btaw/logger"
 	"btaw/pkg"
 	"net/http"

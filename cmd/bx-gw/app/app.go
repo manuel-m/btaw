@@ -1,7 +1,7 @@
 package app
 
 import (
-	"btaw/cmd/api/cfg"
+	"btaw/cmd/bx-gw/cfg"
 	"btaw/logger"
 	"flag"
 	"net/http"
