@@ -1,37 +1,15 @@
 package app
 
 import (
-	"btaw/cmd/gw/bx/cfg"
-	"btaw/logger"
-	"flag"
+	"btaw/pkg/exchange"
 	"net/http"
-	"os"
-
-	"github.com/joho/godotenv"
 )
 
-var Mux *http.ServeMux
+const Version string = "0.0.1"
 
-func Init() error {
+var Port int
+var Env string
+var DATABASE_URL string
 
-	// .env parse
-	{
-		err := godotenv.Load()
-		if err != nil {
-			logger.Log.Fatal("Error loading .env file")
-		}
-		// [!] use os.LookupEnv instead
-		cfg.DATABASE_URL = os.Getenv("DATABASE_URL")
-	}
-
-	// cli parse
-	{
-		flag.IntVar(&cfg.Port, "port", 4000, "API server port")
-		flag.StringVar(&cfg.Env, "env", "development", "Environment (development|staging|production)")
-		flag.Parse()
-	}
-
-	Mux = http.NewServeMux()
-
-	return nil
-}
+var Exchange = &exchange.Bx{}
+var Mux = http.NewServeMux()

@@ -1,7 +1,7 @@
 package db
 
 import (
-	"btaw/cmd/gw/bx/cfg"
+	"btaw/cmd/gw/bx/app"
 	"btaw/logger"
 	"context"
 
@@ -9,7 +9,7 @@ import (
 )
 
 func Query() error {
-	conn, err := pgx.Connect(context.Background(), cfg.DATABASE_URL)
+	conn, err := pgx.Connect(context.Background(), app.DATABASE_URL)
 	if err != nil {
 		logger.Log.Printf("Unable to connect to database: %v\n", err)
 		return err

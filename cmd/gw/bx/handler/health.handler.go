@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"btaw/cmd/gw/bx/cfg"
+	"btaw/cmd/gw/bx/app"
 	"btaw/logger"
 	"btaw/pkg"
 	"net/http"
@@ -11,8 +11,8 @@ func Health(w http.ResponseWriter, r *http.Request) {
 
 	json_data := map[string]string{
 		"status":      "available",
-		"environment": cfg.Env,
-		"version":     cfg.Version,
+		"environment": app.Env,
+		"version":     app.Version,
 	}
 
 	err := pkg.WriteJSON(w, http.StatusOK, json_data, nil)
