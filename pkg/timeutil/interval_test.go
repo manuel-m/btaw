@@ -21,7 +21,7 @@ func TestTimeutil(t *testing.T) {
 	})
 
 	t.Run("unknown interval", func(t *testing.T) {
-		const wanted int64 = 1
+		const wanted int64 = 0
 		interval := Interval("!!UNKNOWN_INTERVAL!!")
 		got, err := interval.ToMs()
 

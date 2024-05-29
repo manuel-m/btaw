@@ -1,4 +1,4 @@
-package klines
+package exchange
 
 import (
 	"fmt"
@@ -9,6 +9,8 @@ import (
 	"time"
 )
 
+type Bx struct{}
+
 type QuoteKlinesParams struct {
 	symbol    string
 	interval  string
@@ -17,7 +19,7 @@ type QuoteKlinesParams struct {
 	timestamp int64
 }
 
-func Fetch(symbol string, interval string) ([]byte, error) {
+func (bx Bx) Klines(symbol string, interval string) ([]byte, error) {
 	now_ms := time.Now().UnixNano() / 1e6
 	t0_ms := now_ms - (1000 * 60 * 60 * 24)
 
