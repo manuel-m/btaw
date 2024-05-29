@@ -2,8 +2,6 @@
 
 **Breaking Trend Analysis Wizard**
 
-
-
 **run**
 ```
 go mod tidy
@@ -18,9 +16,13 @@ http://<host:port>/klines/<symbol>/<interval>
 
 # retreive history data
 http://<host:port>/health
-
 ```
 
+**unit tests**
+
+```
+go test ./...
+```
 
 
 **DB setup**

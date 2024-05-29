@@ -11,8 +11,7 @@ func Klines(w http.ResponseWriter, r *http.Request) {
 	interval := r.PathValue("interval")
 	json_bytes, err := klines.Fetch(symbol, interval)
 
-	logger.Log.Println(symbol)
-	logger.Log.Println(interval)
+	logger.Log.Printf("GET klines/%s/%s", symbol, interval)
 
 	if err != nil {
 		logger.Log.Println(err)

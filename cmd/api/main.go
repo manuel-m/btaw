@@ -12,7 +12,6 @@ import (
 )
 
 func main() {
-
 	app.Init()
 
 	db.Query()

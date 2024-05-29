@@ -20,6 +20,7 @@ func Init() error {
 		if err != nil {
 			logger.Log.Fatal("Error loading .env file")
 		}
+		// [!] use os.LookupEnv instead
 		cfg.DATABASE_URL = os.Getenv("DATABASE_URL")
 	}
 
