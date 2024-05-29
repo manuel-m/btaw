@@ -5,7 +5,6 @@ import (
 	"flag"
 	"os"
 
-	"btaw/cmd/gw/bx/handler"
 	"btaw/logger"
 	"fmt"
 	"net/http"
@@ -32,18 +31,14 @@ func main() {
 		flag.Parse()
 	}
 
+	Routes()
+
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", app.Port),
 		Handler:      app.Mux,
 		IdleTimeout:  time.Minute,
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 30 * time.Second,
-	}
-
-	// routes
-	{
-		app.Mux.HandleFunc("/health", handler.Health)
-		app.Mux.HandleFunc("/klines/{symbol}/{interval}", handler.Klines)
 	}
 
 	logger.Log.Printf("starting %s server on %s", app.Env, srv.Addr)
