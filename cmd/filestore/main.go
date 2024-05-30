@@ -19,9 +19,9 @@ import (
 func main() {
 	// cli parse
 	flag.StringVar(&app.Env, "env", btaw.AppEnvDefault, "Environment (development|staging|production)")
-	flag.StringVar(&app.GwUrl, "gw", btaw.GwUrlDefault, "Gateway url (http://localhost:4000/)")
+	flag.StringVar(&app.GwURL, "gw", btaw.GwURLDefault, "Gateway url (http://localhost:4000/)")
 	flag.Parse()
 
-	fmt.Println(app.GwUrl)
+	fmt.Println(app.GwURL)
 
 }

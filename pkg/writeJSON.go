@@ -6,7 +6,7 @@ import (
 )
 
 func WriteJSON(w http.ResponseWriter, status int, data interface{}, headers http.Header) error {
-	json_bytes, err := json.Marshal(data)
+	jsonBytes, err := json.Marshal(data)
 	if err != nil {
 		return err
 	}
@@ -15,6 +15,6 @@ func WriteJSON(w http.ResponseWriter, status int, data interface{}, headers http
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)
-	w.Write(json_bytes)
+	w.Write(jsonBytes)
 	return nil
 }

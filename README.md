@@ -2,10 +2,9 @@
 
 **Breaking Trend Analysis Wizard**
 
-**run**
+**help**
 ```
-go mod tidy
-go run ./cmd/bx-gw/
+make
 ```
 
 **api**
@@ -21,13 +20,6 @@ http://localhost:4000/klines/BTC-USDT/15m/1715555676044/1d
 # retreive history data
 http://<host:port>/health
 ```
-
-**unit tests**
-
-```
-go test ./...
-```
-
 
 **DB setup**
 

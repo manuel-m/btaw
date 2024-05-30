@@ -24,7 +24,7 @@ func Klines(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	json_bytes, err := app.Exchange.Klines(symbol, tf, t0, duration)
+	jsonBytes, err := app.Exchange.Klines(symbol, tf, t0, duration)
 	logger.Log.Printf("GET klines/%s/%s/%d/%s", symbol, tf, t0, duration)
 
 	if err != nil {
@@ -35,6 +35,6 @@ func Klines(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	w.Write(json_bytes)
+	w.Write(jsonBytes)
 
 }

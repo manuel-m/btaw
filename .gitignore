@@ -1,2 +1,4 @@
 .env
 TODO.md
+test/coverage.out
+bin/*

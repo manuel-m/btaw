@@ -4,8 +4,8 @@ import "fmt"
 
 type Interval string
 
-func (i Interval) String() string {
-	return string(i)
+func (interval Interval) String() string {
+	return string(interval)
 }
 
 type Converter interface {

@@ -9,7 +9,7 @@ import (
 )
 
 func Query() error {
-	conn, err := pgx.Connect(context.Background(), app.DATABASE_URL)
+	conn, err := pgx.Connect(context.Background(), app.DatabaseURL)
 	if err != nil {
 		logger.Log.Printf("Unable to connect to database: %v\n", err)
 		return err

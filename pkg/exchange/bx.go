@@ -49,18 +49,18 @@ func (bx Bx) Klines(symbol string, tf timeutil.Interval, startTime int64, durati
 	o := reflect.ValueOf(p)
 
 	for i := 0; i < o.NumField(); i++ {
-		var string_value string
+		var stringValue string
 
 		// [!] improve naming
 		f := o.Type().Field(i)
 
 		switch f.Type.Name() {
 		case "string":
-			string_value = o.Field(i).String()
+			stringValue = o.Field(i).String()
 		case "int64":
-			string_value = fmt.Sprintf("%d", o.Field(i).Int())
+			stringValue = fmt.Sprintf("%d", o.Field(i).Int())
 		}
-		queryString.Set(f.Name, string_value)
+		queryString.Set(f.Name, stringValue)
 
 	}
 

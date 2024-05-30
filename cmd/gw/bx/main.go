@@ -22,7 +22,7 @@ func main() {
 			logger.Log.Fatal("Error loading .env file")
 		}
 		// [!] use os.LookupEnv instead
-		app.DATABASE_URL = os.Getenv("DATABASE_URL")
+		app.DatabaseURL = os.Getenv("DatabaseURL")
 	}
 
 	// cli parse

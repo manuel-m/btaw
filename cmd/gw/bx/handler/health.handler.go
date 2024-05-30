@@ -9,13 +9,13 @@ import (
 
 func Health(w http.ResponseWriter, r *http.Request) {
 
-	json_data := map[string]string{
+	jsonData := map[string]string{
 		"status":      "available",
 		"environment": app.Env,
 		"version":     app.Version,
 	}
 
-	err := pkg.WriteJSON(w, http.StatusOK, json_data, nil)
+	err := pkg.WriteJSON(w, http.StatusOK, jsonData, nil)
 
 	if err != nil {
 		logger.Log.Println(err)
