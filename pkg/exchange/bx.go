@@ -11,7 +11,7 @@ import (
 
 type Bx struct{}
 
-type QuoteKlinesParams struct {
+type klinesParams struct {
 	symbol    string
 	interval  string
 	limit     int64
@@ -37,7 +37,7 @@ func (bx Bx) Klines(symbol string, tf timeutil.Interval, startTime int64, durati
 		return nil, nil
 	}
 
-	p := QuoteKlinesParams{
+	p := klinesParams{
 		symbol:    symbol,
 		interval:  tf.String(),
 		limit:     durationMs / intervalMs,

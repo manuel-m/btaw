@@ -1,14 +1,16 @@
 package app
 
 import (
+	"btaw"
 	"btaw/pkg/exchange"
 	"net/http"
 )
 
-const Version string = "0.0.1"
+const Version = btaw.Version
+
+var Env = btaw.AppEnvDefault
 
 var Port int
-var Env string
 var DATABASE_URL string
 
 var Exchange = &exchange.Bx{}

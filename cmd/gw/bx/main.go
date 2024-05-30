@@ -1,6 +1,7 @@
 package main
 
 import (
+	"btaw"
 	"btaw/cmd/gw/bx/app"
 	"flag"
 	"os"
@@ -26,7 +27,7 @@ func main() {
 
 	// cli parse
 	{
-		flag.IntVar(&app.Port, "port", 4000, "API server port")
+		flag.IntVar(&app.Port, "port", btaw.GwBxPortDefault, "API server port")
 		flag.StringVar(&app.Env, "env", "development", "Environment (development|staging|production)")
 		flag.Parse()
 	}
