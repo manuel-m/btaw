@@ -2,9 +2,10 @@ package handler
 
 import (
 	"btaw/cmd/gw/bx/app"
-	"btaw/logger"
 	"btaw/pkg"
 	"net/http"
+
+	"github.com/rs/zerolog/log"
 )
 
 func Health(w http.ResponseWriter, r *http.Request) {
@@ -18,7 +19,7 @@ func Health(w http.ResponseWriter, r *http.Request) {
 	err := pkg.WriteJSON(w, http.StatusOK, jsonData, nil)
 
 	if err != nil {
-		logger.Log.Println(err)
+		log.Error().Err(err)
 		http.Error(w, "The server encountered a problem and could not process your request", http.StatusInternalServerError)
 		return
 	}

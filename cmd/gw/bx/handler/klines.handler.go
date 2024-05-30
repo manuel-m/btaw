@@ -2,11 +2,13 @@ package handler
 
 import (
 	"btaw/cmd/gw/bx/app"
-	"btaw/logger"
+
 	"btaw/pkg/timeutil"
 	"fmt"
 	"net/http"
 	"strconv"
+
+	"github.com/rs/zerolog/log"
 )
 
 func Klines(w http.ResponseWriter, r *http.Request) {
@@ -25,10 +27,10 @@ func Klines(w http.ResponseWriter, r *http.Request) {
 	}
 
 	jsonBytes, err := app.Exchange.Klines(symbol, tf, t0, duration)
-	logger.Log.Printf("GET klines/%s/%s/%d/%s", symbol, tf, t0, duration)
+	log.Printf("GET klines/%s/%s/%d/%s", symbol, tf, t0, duration)
 
 	if err != nil {
-		logger.Log.Println(err)
+		log.Error().Err(err)
 		http.Error(w, "The server encountered a problem and could not process your request", http.StatusInternalServerError)
 		return
 	}

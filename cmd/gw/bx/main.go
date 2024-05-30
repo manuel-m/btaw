@@ -6,12 +6,12 @@ import (
 	"flag"
 	"os"
 
-	"btaw/logger"
 	"fmt"
 	"net/http"
 	"time"
 
 	"github.com/joho/godotenv"
+	"github.com/rs/zerolog/log"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 	{
 		err := godotenv.Load()
 		if err != nil {
-			logger.Log.Fatal("Error loading .env file")
+			log.Fatal().Err(err).Msg("Error loading .env file")
 		}
 		// [!] use os.LookupEnv instead
 		app.DatabaseURL = os.Getenv("DatabaseURL")
@@ -42,8 +42,8 @@ func main() {
 		WriteTimeout: 30 * time.Second,
 	}
 
-	logger.Log.Printf("starting %s server on %s", app.Env, srv.Addr)
+	log.Printf("starting %s server on %s", app.Env, srv.Addr)
 	err := srv.ListenAndServe()
-	logger.Log.Fatal(err)
+	log.Fatal().Err(err)
 
 }
