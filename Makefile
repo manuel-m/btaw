@@ -59,17 +59,17 @@ test/cover:
 ## build: build the application
 .PHONY: build
 build:
-	go build -o=./bin/${BINARY_NAME} ${MAIN_PACKAGE_PATH}
+	go build -o=./bin/${BINARY_NAME}_d ${MAIN_PACKAGE_PATH}
 
 ## run: run the  application
 .PHONY: run
 run: build
-	./bin/${BINARY_NAME}
+	./bin/${BINARY_NAME}_d
 
 ## run/live: run the application with reloading on file changes
 .PHONY: run/live
 run/live:
-	go run github.com/cosmtrek/air@v1.43.0 \
+	go run github.com/cosmtrek/air@latest \
 		--build.cmd "make build" --build.bin "./bin/${BINARY_NAME}" --build.delay "100" \
 		--build.exclude_dir "" \
 		--build.include_ext "go, tpl, tmpl, html, css, scss, js, ts, sql, jpeg, jpg, gif, png, bmp, svg, webp, ico" \
@@ -89,6 +89,6 @@ push: tidy audit no-dirty
 .PHONY: production/deploy
 production/deploy: confirm tidy audit no-dirty
 	GOOS=linux GOARCH=amd64 go build -ldflags='-s' -o=./bin/linux_amd64/${BINARY_NAME} ${MAIN_PACKAGE_PATH}
-	upx -5 /tmp/bin/linux_amd64/${BINARY_NAME}
+	upx -5 ./bin/linux_amd64/${BINARY_NAME}
 	# Include additional deployment steps here...
 	
