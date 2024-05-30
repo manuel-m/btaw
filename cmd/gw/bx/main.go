@@ -27,7 +27,7 @@ func main() {
 
 	// cli parse
 	{
-		flag.IntVar(&app.Port, "port", btaw.GwBxPortDefault, "API server port")
+		flag.IntVar(&app.Port, "port", btaw.GwPortDefault, "API server port")
 		flag.StringVar(&app.Env, "env", "development", "Environment (development|staging|production)")
 		flag.Parse()
 	}
