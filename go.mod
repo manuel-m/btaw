@@ -5,6 +5,7 @@ go 1.22.3
 require (
 	github.com/jackc/pgx/v5 v5.6.0
 	github.com/joho/godotenv v1.5.1
+	github.com/manuel-m/timeutil v0.0.0-20240531115125-1ccf03ce3100
 	github.com/rs/zerolog v1.33.0
 )
 

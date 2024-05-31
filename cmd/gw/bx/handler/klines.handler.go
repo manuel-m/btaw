@@ -3,10 +3,11 @@ package handler
 import (
 	"btaw/cmd/gw/bx/app"
 
-	"btaw/pkg/timeutil"
 	"fmt"
 	"net/http"
 	"strconv"
+
+	"github.com/manuel-m/timeutil"
 
 	"github.com/rs/zerolog/log"
 )

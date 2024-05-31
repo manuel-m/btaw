@@ -1,12 +1,13 @@
 package exchange
 
 import (
-	"btaw/pkg/timeutil"
 	"fmt"
 	"io"
 	"net/http"
 	"net/url"
 	"reflect"
+
+	"github.com/manuel-m/timeutil"
 )
 
 type Bx struct{}
